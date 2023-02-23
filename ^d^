@@ -1,0 +1,98 @@
+from selenium import webdriver
+import random
+import time
+
+
+#restart
+a=1
+while a==1:
+    driver = webdriver.Chrome()
+    
+    #網址
+    url = ''
+
+    driver.get(url)
+    
+    #part 1
+    answers = driver.find_elements("css selector", '.Qr7Oae')\
+
+    for answer in answers:
+        try:  
+            driver.execute_script("arguments[0].scrollIntoView();",answer)
+            ans = answer.find_elements("css selector", 'label')
+            label = random.choice(ans[:-1])
+            label.click()
+        except Exception as e:
+            print(e)    
+        
+    submit_button = driver.find_element("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.ThHDze > div.DE3NNc.CekdCb > div.lRwqcd > div > span')
+    submit_button.click()
+
+    #part 2
+    answers = driver.find_elements("css selector", '.eBFwI')\
+
+    for answer in answers:
+        try:  
+            driver.execute_script("arguments[0].scrollIntoView();",answer)
+            ans = answer.find_elements("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.o3Dpx > div:nth-child(2) > div > div > div.Y6Myld > div:nth-child(2) > div:nth-child(12) > label')
+            label = random.choice(ans)
+            label.click()
+        except Exception as e:
+            print(e)
+
+    submit_button = driver.find_element("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.ThHDze > div.DE3NNc.CekdCb > div.lRwqcd > div:nth-child(2) > span')
+    submit_button.click()
+
+    #part 3
+    answers = driver.find_elements("css selector", '.Y6Myld')\
+
+    for answer in answers:
+        try:  
+            driver.execute_script("arguments[0].scrollIntoView();",answer)
+            ans = answer.find_elements("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.o3Dpx > div:nth-child(2) > div > div > div.Y6Myld > div:nth-child(2) > div:nth-child(2) > label')
+            label = random.choice(ans)
+            label.click()
+        except Exception as e:
+            print(e)    
+        
+    submit_button = driver.find_element("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.ThHDze > div.DE3NNc.CekdCb > div.lRwqcd > div:nth-child(2) > span')
+    submit_button.click()
+
+    #part 4
+
+    answers = driver.find_elements("css selector", '.oyXaNc')\
+
+    for answer in answers:
+        try:  
+            driver.execute_script("arguments[0].scrollIntoView();",answer)
+            ans = answer.find_elements("css selector", 'label')
+            label = random.choice(ans)
+            label.click()
+        except Exception as e:
+            print(e)    
+        
+    submit_button = driver.find_element("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.ThHDze > div.DE3NNc.CekdCb > div.lRwqcd > div:nth-child(2) > span')
+    submit_button.click()
+
+    #part 5
+
+    answers = driver.find_elements("css selector", '.Qr7Oae')\
+
+    for answer in answers:
+        try:  
+            driver.execute_script("arguments[0].scrollIntoView();",answer)
+            ans = answer.find_elements("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.o3Dpx > div:nth-child(2) > div > div > div.Y6Myld > div:nth-child(2) > div:nth-child(12) > label')
+            label = random.choice(ans)
+            label.click()
+        except Exception as e:
+            print(e)    
+        
+    submit_button = driver.find_element("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.ThHDze > div.DE3NNc.CekdCb > div.lRwqcd > div:nth-child(2) > span')
+    submit_button.click()
+
+    #submit
+    text = driver.find_element("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.o3Dpx > div:nth-child(2) > div > div > div.AgroKb > div > div.RpC4Ne.oJeWuf > div.Pc9Gce.Wic03c > textarea').send_keys('我故意的')
+    submit_button = driver.find_element("css selector", '#mG61Hd > div.RH5hzf.RLS9Fe > div > div.ThHDze > div.DE3NNc.CekdCb > div.lRwqcd > div.uArJ5e.UQuaGc.Y5sE8d.VkkpIf.QvWxOd > span')
+    submit_button.click()
+    time.sleep(1)
+    driver.refresh
